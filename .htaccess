@@ -1,0 +1,16 @@
+# Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteRule ^books/create/$   router.php?page_key=create [L]
+RewriteRule ^books/create$   books/create/ [L,R=301]
+
+RewriteRule ^books/list/$   router.php?page_key=list [nc,qsa]
+RewriteRule ^books/list$   router.php?page_key=list [nc,qsa]
+
+RewriteRule ^books/update/([0-9]+)/$   router.php?page_key=update&id=$1 [L]
+RewriteRule ^books/update/([0-9]+)$   books/update/$1/ [L,R=301]
+
+RewriteRule ^books/delete/([0-9]+)/$   router.php?page_key=delete&id=$1 [L]
+RewriteRule ^books/delete([0-9]+)$   books/delete/$1 [L,R=301]
